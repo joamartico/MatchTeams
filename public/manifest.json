@@ -3,8 +3,8 @@
     "background_color": "#f2f1f6",
     "display": "standalone",
     "start_url": ".",
-    "name": "Boilerplate",
-    "short_name": "Boilerplate",
+    "name": "MatchTeams",
+    "short_name": "MatchTeams",
     "icons": [
         {
           "src": "rounded.png",
