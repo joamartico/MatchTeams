@@ -1,22 +1,24 @@
 import { IonApp, IonRouterOutlet } from '@ionic/react';
 
 import { IonReactRouter } from '@ionic/react-router';
+import { bookmark, home, person, search } from 'ionicons/icons';
 import { Redirect, Route } from 'react-router-dom';
 import Context from './Context';
-import Tabs from "./pages/Tabs";
-
-
-
+import Main from './screens/Main';
+import NewTournament from "./screens/NewTournament";
+import Tournament from './screens/TournamentTabs';
 
 const App = () => {
   return (
     <Context>
       <IonApp>
         <IonReactRouter>
-            <IonRouterOutlet id="main">
-                <Route path="/tabs" render={() => <Tabs />} />
-                <Route exact path="/" render={() => <Redirect to="/tabs" />} />
-            </IonRouterOutlet>
+          <IonRouterOutlet id="main">
+            <Route path="/" render={() => <Redirect to="/" />} />
+            <Route exact path="/" render={() => <Main />} />
+            <Route path="/tournament/:tournamentId" render={() => <Tournament />} />
+            <Route path="/new-tournament" render={() => <NewTournament />} />
+          </IonRouterOutlet>
         </IonReactRouter>
       </IonApp>
     </Context>
