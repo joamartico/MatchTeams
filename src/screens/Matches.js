@@ -3,7 +3,7 @@ import {
   IonGrid,
   IonRow,
 } from '@ionic/react';
-import React, { memo, useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { db } from '../../firebase';
 import { Scroll } from "../components/StyledComponents";
@@ -15,13 +15,13 @@ const Matches = ({ tournamentId }) => {
 
   const tournamentRef = tournamentId && db.collection('tournaments').doc(tournamentId);
 
-  const handleMasFechas = useCallback(async () => {
+  const handleMasFechas = async () => {
     const newFechasTotales = [...tournament.shuffledPlayers, ...tournament.firstFecha];
     console.log('MAS FECHAS? TOMA: ', newFechasTotales);
     tournamentRef.update({
       shuffledPlayers: [...tournament.shuffledPlayers, ...tournament.firstFecha],
     });
-  }, [])
+  }
 
   return (
     <>

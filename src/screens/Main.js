@@ -23,6 +23,7 @@ const Main = () => {
   const { setPlayers, setTournament } = useGlobalState();
 
   async function getTournaments() {
+    console.log('RESET');
     await setPlayers([]);
     await setTournament();
 
@@ -44,7 +45,7 @@ const Main = () => {
 
   useEffect(() => {
     getTournaments();
-  }, []);
+  }, [router.routeInfo.pathname]);
 
   const deleteTournament = id => {
     db.collection('tournaments').doc(id).delete();

@@ -1,6 +1,6 @@
 import { IonCol, IonInput, IonSelect, IonSelectOption } from '@ionic/react';
 import firebase from 'firebase';
-import React, { memo, useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { db } from '../../firebase';
 import { useGlobalState } from '../Context';
@@ -11,9 +11,11 @@ const Team = ({ name, goals, local, i, tournamentId }) => {
 
   const tournamentRef = tournamentId && db.collection('tournaments').doc(tournamentId);
   console.log('TOURNAMENT: ', tournament);
-
+  
   const onGoalChange = async goals => {
-    console.log('onGoalChange GOALS: ', goals);
+  console.log('TOURNAMENT (onchangechangegol): ', tournament);
+    
+    // console.log('onGoalChange GOALS: ', goals);
     const newShuffledPlayers = await tournament.shuffledPlayers.slice();
     newShuffledPlayers[i].goals = await parseInt(goals);
     await tournamentRef.update({
@@ -30,11 +32,11 @@ const Team = ({ name, goals, local, i, tournamentId }) => {
     await tournament?.shuffledPlayers.map(async (player, index) => {
       const indexToCompare = index % 2 == 0 ? `${index + 1}` : `${index - 1}`;
 
-      console.log(
-        tournament.shuffledPlayers[index], // or player
-        ' vs: ',
-        tournament.shuffledPlayers[indexToCompare]
-      );
+      // console.log(
+      //   tournament.shuffledPlayers[index], // or player
+      //   ' vs: ',
+      //   tournament.shuffledPlayers[indexToCompare]
+      // );
 
       if (tournament.shuffledPlayers[indexToCompare].goals != undefined) {
         // 1. PONER EN 0 TODAS LAS ESTADISTICAS DE JUGADORES
@@ -55,7 +57,7 @@ const Team = ({ name, goals, local, i, tournamentId }) => {
           tournament.shuffledPlayers[index].goals > tournament.shuffledPlayers[indexToCompare].goals
         ) {
           //GANO
-          console.log(player.name + ' GANO en INDEX = ' + index);
+          // console.log(player.name + ' GANO en INDEX = ' + index);
 
           tournamentRef
             .collection('players')
@@ -77,7 +79,7 @@ const Team = ({ name, goals, local, i, tournamentId }) => {
           tournament.shuffledPlayers[indexToCompare].goals
         ) {
           //EMPATO
-          console.log(player.name + ' EMPATO en INDEX = ' + index);
+          // console.log(player.name + ' EMPATO en INDEX = ' + index);
 
           tournamentRef
             .collection('players')
@@ -98,7 +100,7 @@ const Team = ({ name, goals, local, i, tournamentId }) => {
           tournament.shuffledPlayers[index].goals < tournament.shuffledPlayers[indexToCompare].goals
         ) {
           //PERDIO
-          console.log(player.name + ' PERDIO en INDEX = ' + index);
+          // console.log(player.name + ' PERDIO en INDEX = ' + index);
 
           tournamentRef
             .collection('players')
@@ -113,7 +115,7 @@ const Team = ({ name, goals, local, i, tournamentId }) => {
               ),
             });
         }
-        console.log('-----------------------------------');
+        // console.log('-----------------------------------');
       }
     });
   };
@@ -144,7 +146,6 @@ const Team = ({ name, goals, local, i, tournamentId }) => {
   );
 };
 
-// export default memo(Team);
 export default Team;
 
 const Col = styled(IonCol)`
