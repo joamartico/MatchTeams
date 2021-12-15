@@ -83,7 +83,7 @@ export const Icon = styled(IonIcon)`
   margin-right: ${({ marginRight }) => marginRight + 'px' || '5px'};
   margin-left: ${({ marginLeft }) => marginLeft + 'px' || '5px'};
   align-self: center;
-  --ionicon-stroke-width: ${({ weight }) => weight && weight + 'px'} !important;
+  --ionicon-stroke-width: ${({ weight }) => weight ? weight + 'px' : "30px"} !important;
 `;
 
 export const Text = styled.p`

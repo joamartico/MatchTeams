@@ -107,6 +107,7 @@ const DeleteOption = styled(IonItemOption)`
   width: 55px;
   margin-right: 4%;
   margin-left: 8px;
+  z-index: 99999999 !important;
 `;
 
 const Card = styled(IonItem)`

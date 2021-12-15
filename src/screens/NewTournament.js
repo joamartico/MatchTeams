@@ -9,6 +9,7 @@ import {
   IonTitle,
   IonToolbar,
   useIonRouter,
+  useIonToast,
 } from '@ionic/react';
 import firebase from 'firebase';
 import { addOutline } from 'ionicons/icons';
@@ -28,10 +29,11 @@ const shuffleArray = arr =>
 const NewTournament = () => {
   const router = useIonRouter();
   const [playersArr, setPlayersArr] = useState([]);
-  const [tournamentName, setTournamentName] = useState();
+  const [tournamentName, setTournamentName] = useState('');
   const [manyPlayers, setManyPlayers] = useState(0);
   const { setTournamentId, setFechasTotales, setPlayers, setTournament } = useGlobalState();
   const [loading, setLoading] = useState(false);
+  const [present] = useIonToast();
 
   const handleAddPlayer = () => {
     setPlayersArr([...playersArr, { name: '', id: manyPlayers }]);
@@ -53,6 +55,16 @@ const NewTournament = () => {
   };
 
   const handleShuffle = async () => {
+    if (tournamentName == '') {
+      // alert("Ingrese el nombre del torneo");
+      // ion alert danger:
+      present({
+        message: 'Ingrese el nombre del torneo',
+        color: 'danger',
+        duration: 2000,
+      });
+      return;
+    }
     await setLoading(true);
     const firstFecha = await shuffleArray(playersArr);
     var newFechasTotales = firstFecha.slice();

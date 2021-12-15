@@ -59,11 +59,11 @@ const Standings = ({ tournamentId }) => {
         <Row mb="3.5%" mt="3.5%" columns="12.5% 25% 12.5% 12.5% 12.5% 12.5% 12.5%" color="#868686">
           <Col> </Col>
           <Col name={true}>Team</Col>
+          <Col>PTS</Col>
           <Col>PG</Col>
           <Col>PE</Col>
           <Col>PP</Col>
           <Col>DG</Col>
-          <Col>PTS</Col>
         </Row>
         {standingsPlayers.length === 0 && (
           <>
@@ -78,15 +78,15 @@ const Standings = ({ tournamentId }) => {
             <Row mb="3.5%" columns="12.5% 25% 12.5% 12.5% 12.5% 12.5% 12.5%">
               <Position first={i == 0}>{i + 1}</Position>
               <Col name={true}>{player.name}</Col>
+              <Col>{player.points}</Col>
               <Col>{player.wonGames}</Col>
               <Col>{player.drawnGames}</Col>
               <Col>{player.lostGames}</Col>
               <Col>
-                {/* {player.goals}:{player.goalsConceded} */}
-                {player.goals - player.goalsConceded > 0 && '+'}
-                {player.goals - player.goalsConceded}
+                {player.goals}:{player.goalsConceded}
+                {/* {player.goals - player.goalsConceded > 0 && '+'} */}
+                {/* {player.goals - player.goalsConceded} */}
               </Col>
-              <Col>{player.points}</Col>
             </Row>
           ))}
       </Scroll>

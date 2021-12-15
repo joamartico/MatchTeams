@@ -2,31 +2,12 @@ import { useState } from 'react';
 import { Icon } from './StyledComponents';
 import { closeOutline } from 'ionicons/icons';
 import { IonInput } from '@ionic/react';
+import styled from "styled-components";
 
 const NewPlayer = ({ name, onRemove, onChange }) => {
   return (
-    <div
-      style={{
-        height: '35px',
-        marginTop: '0px',
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        borderBottom: '1px solid #666',
-        width: '100%',
-      }}
-    >
-      <IonInput
-        style={{
-          marginTop: '0px',
-          marginBottom: '0px',
-          fontWeight: 'bold',
-          // marginLeft: '18px',
-          fontSize: '14px',
-          background: 'none',
-          border: 'none',
-          width: '78%',
-        }}
+    <PlayerRow>
+      <Input
         placeholder="Nuevo jugador"
         autoFocus={true}
         autofocus={true}
@@ -34,23 +15,42 @@ const NewPlayer = ({ name, onRemove, onChange }) => {
         onIonChange={onChange}
       />
 
-      <div //BOTON ELIMINAR
-        style={{
-          background: '#bbb2',
-          borderRadius: '40px',
-          height: '25px',
-          width: '25px',
-          alignItems: 'center',
-          justifyContent: 'center',
-          marginLeft: '15px',
-        }}
-        onClick={onRemove}
-      >
+      <RemoveButton onClick={onRemove}>
         <Icon icon={closeOutline} size={24} color="black" />
-        {/* name="ios-close" */}
-      </div>
-    </div>
+      </RemoveButton>
+    </PlayerRow>
   );
 };
+
+const Input = styled(IonInput)`
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-weight: bold;
+  font-size: 14px;
+  background: none;
+  border: none;
+  width: 78%;
+`;
+
+const PlayerRow = styled.div`
+  height: 35px;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid #666;
+  width: 100%;
+`;
+
+const RemoveButton = styled.div`
+  /* background-color: #cfcfcfaa; */
+  /* border-radius: 50%; */
+  display: flex;
+  height: 25px;
+  width: 25px;
+  align-items: center;
+  justify-content: center;
+  margin-left: 15px;
+`;
 
 export default NewPlayer;
