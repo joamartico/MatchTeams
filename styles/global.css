@@ -4,13 +4,13 @@ ion-spinner {
   margin: auto !important;
 }
 
+html,
 body,
 #__next {
-  background: red;
+  background: var(--background-color);
 }
 
 html {
-  background: var(--background-color);
   position: fixed;
   top: 0;
   left: 0;
