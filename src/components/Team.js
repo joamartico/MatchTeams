@@ -10,13 +10,13 @@ const Team = ({ name, goals, local, i, tournamentId }) => {
   //   const [number, setNumber] = useState(goals || 0);
 
   const tournamentRef = tournamentId && db.collection('tournaments').doc(tournamentId);
-  console.log("tournament: ", tournament)
+  console.log('TOURNAMENT: ', tournament);
 
   const onGoalChange = async goals => {
     console.log('onGoalChange GOALS: ', goals);
-    const newShuffledPlayers = tournament.shuffledPlayers.slice();
-    newShuffledPlayers[i].goals = parseInt(goals);
-    tournamentRef.update({
+    const newShuffledPlayers = await tournament.shuffledPlayers.slice();
+    newShuffledPlayers[i].goals = await parseInt(goals);
+    await tournamentRef.update({
       shuffledPlayers: newShuffledPlayers,
     });
     //   setTournament({
@@ -26,15 +26,12 @@ const Team = ({ name, goals, local, i, tournamentId }) => {
     await calculateStandings();
   };
 
-  const calculateStandings = useCallback(async () => {
+  const calculateStandings = async () => {
     await tournament?.shuffledPlayers.map(async (player, index) => {
       const indexToCompare = index % 2 == 0 ? `${index + 1}` : `${index - 1}`;
 
-      console.log('PLAYER: ', player);
-      console.log('I: ', index);
-      console.log('ITC: ', indexToCompare);
       console.log(
-        tournament.shuffledPlayers[index],
+        tournament.shuffledPlayers[index], // or player
         ' vs: ',
         tournament.shuffledPlayers[indexToCompare]
       );
@@ -119,7 +116,7 @@ const Team = ({ name, goals, local, i, tournamentId }) => {
         console.log('-----------------------------------');
       }
     });
-  }, [tournamentId]);
+  };
 
   return (
     <Col local={local}>
@@ -148,7 +145,7 @@ const Team = ({ name, goals, local, i, tournamentId }) => {
 };
 
 // export default memo(Team);
-export default Team
+export default Team;
 
 const Col = styled(IonCol)`
   font-size: 1.1rem;

@@ -11,6 +11,7 @@ const Standings = ({ tournamentId }) => {
   //   const { standingsCalculated } = useGlobalState();
   const [standingsPlayers, setStandingsPlayers] = useState([]);
   const [totalGD, setTotalGD] = useState();
+  const [loading, setLoading] = useState(false)
 
 
 
