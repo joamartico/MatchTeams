@@ -45,6 +45,11 @@ const Main = () => {
 
   useEffect(() => {
     getTournaments();
+    if (router.routeInfo.pathname === '/') {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', "#ceebeb");
+    } else {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', "#fff");
+    }
   }, [router.routeInfo.pathname]);
 
   const deleteTournament = id => {

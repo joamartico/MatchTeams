@@ -1,7 +1,6 @@
 import { IonApp, IonRouterOutlet } from '@ionic/react';
 
 import { IonReactRouter } from '@ionic/react-router';
-import { bookmark, home, person, search } from 'ionicons/icons';
 import { Redirect, Route } from 'react-router-dom';
 import Context from './Context';
 import Main from './screens/Main';
@@ -9,6 +8,9 @@ import NewTournament from "./screens/NewTournament";
 import Tournament from './screens/TournamentTabs';
 
 const App = () => {
+
+
+
   return (
     <Context>
       <IonApp>

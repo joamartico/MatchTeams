@@ -1,12 +1,8 @@
-import {
-  IonContent,
-  IonGrid,
-  IonRow,
-} from '@ionic/react';
-import React, { useEffect, useState } from 'react';
+import { IonContent, IonGrid, IonRow } from '@ionic/react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { db } from '../../firebase';
-import { Scroll } from "../components/StyledComponents";
+import { Scroll } from '../components/StyledComponents';
 import Team from '../components/Team';
 import { useGlobalState } from '../Context';
 
@@ -21,7 +17,7 @@ const Matches = ({ tournamentId }) => {
     tournamentRef.update({
       shuffledPlayers: [...tournament.shuffledPlayers, ...tournament.firstFecha],
     });
-  }
+  };
 
   return (
     <>
@@ -62,7 +58,7 @@ const Matches = ({ tournamentId }) => {
 };
 
 // export default memo(Matches);
-export default Matches
+export default Matches;
 
 const Match = styled(IonRow)`
   max-width: 400px;

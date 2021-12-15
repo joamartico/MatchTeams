@@ -1,5 +1,5 @@
 import { IonCol, IonContent, IonGrid, IonList, IonLoading, IonRow, IonSpinner } from '@ionic/react';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { db } from '../../firebase';
 import { COLORS } from '../../styles/theme';
@@ -11,9 +11,7 @@ const Standings = ({ tournamentId }) => {
   //   const { standingsCalculated } = useGlobalState();
   const [standingsPlayers, setStandingsPlayers] = useState([]);
   const [totalGD, setTotalGD] = useState();
-  const [loading, setLoading] = useState(false)
-
-
+  const [loading, setLoading] = useState(false);
 
   async function calculateTotalGD() {
     const total = 0;
@@ -60,7 +58,7 @@ const Standings = ({ tournamentId }) => {
       <Scroll>
         <Row mb="3.5%" mt="3.5%" columns="12.5% 25% 12.5% 12.5% 12.5% 12.5% 12.5%" color="#868686">
           <Col> </Col>
-          <Col name={true} >Team</Col>
+          <Col name={true}>Team</Col>
           <Col>PG</Col>
           <Col>PE</Col>
           <Col>PP</Col>

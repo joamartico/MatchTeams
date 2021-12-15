@@ -10,7 +10,7 @@ import {
   IonToolbar,
   useIonRouter,
 } from '@ionic/react';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { db } from '../../firebase';
 import Team from '../components/Team';
@@ -25,13 +25,12 @@ const Tournament = () => {
 
   const tournamentId = router.routeInfo.pathname.split('tournament/')[1];
 
-  
-  
   useEffect(() => {
     tournamentId &&
       db
         .collection('tournaments')
-        .doc(tournamentId).get()
+        .doc(tournamentId)
+        .get()
         .then(snapshot => {
           setTournament(snapshot.data());
         });
@@ -52,7 +51,7 @@ const Tournament = () => {
         setPlayers(newPlayers);
       });
 
-      console.log("PIDIENDO DATOS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+    console.log('PIDIENDO DATOS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
   }, []);
 
   return (

@@ -1,6 +1,6 @@
 import { IonCol, IonInput, IonSelect, IonSelectOption } from '@ionic/react';
 import firebase from 'firebase';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import { db } from '../../firebase';
 import { useGlobalState } from '../Context';
@@ -11,10 +11,10 @@ const Team = ({ name, goals, local, i, tournamentId }) => {
 
   const tournamentRef = tournamentId && db.collection('tournaments').doc(tournamentId);
   console.log('TOURNAMENT: ', tournament);
-  
+
   const onGoalChange = async goals => {
-  console.log('TOURNAMENT (onchangechangegol): ', tournament);
-    
+    console.log('TOURNAMENT (onchangechangegol): ', tournament);
+
     // console.log('onGoalChange GOALS: ', goals);
     const newShuffledPlayers = await tournament.shuffledPlayers.slice();
     newShuffledPlayers[i].goals = await parseInt(goals);

@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Icon } from './StyledComponents';
 import { closeOutline } from 'ionicons/icons';
-import { IonInput } from "@ionic/react";
+import { IonInput } from '@ionic/react';
 
 const NewPlayer = ({ name, onRemove, onChange }) => {
   return (

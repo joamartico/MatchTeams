@@ -12,7 +12,7 @@ import {
 } from '@ionic/react';
 import firebase from 'firebase';
 import { addOutline } from 'ionicons/icons';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import { db } from '../../firebase';
 import NewPlayer from '../components/NewPlayer';
@@ -121,7 +121,7 @@ const NewTournament = () => {
 
       <IonContent>
         <Scroll>
-          {loading && <IonLoading translucent isOpen mode="ios"/>}
+          {loading && <IonLoading translucent isOpen mode="ios" />}
 
           <PlayerInput
             placeholder="Nombre del Torneo"
