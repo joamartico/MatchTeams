@@ -51,7 +51,8 @@ const Main = () => {
     if (router.routeInfo.pathname === '/') {
       document
         .querySelector('meta[name="theme-color"]')
-        .setAttribute('content', isDarkMode ? '#1e1e1e' : '#ceebeb');
+        .setAttribute('content', isDarkMode ? '#000' : '#ceebeb');
+        // .setAttribute('content', isDarkMode ? '#1e1e1e' : '#ceebeb');
     } else {
       document
         .querySelector('meta[name="theme-color"]')
@@ -80,7 +81,6 @@ const Main = () => {
                 lines="none"
                 key={tournament.id}
                 onClick={() => router.push('tournament/' + tournament.id)}
-                style={{ borderRadius: 15 }}
               >
                 <Text size="16" weight="bold">
                   {tournament.name}
@@ -108,7 +108,6 @@ export default Main;
 
 const DeleteOption = styled(IonItemOption)`
   border-radius: 15px;
-  height: 55px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -120,32 +119,13 @@ const DeleteOption = styled(IonItemOption)`
 
 const SlidingCard = styled(IonItem)`
   width: 92%;
-  /* --height: 55px !important; */
-  height: 100% !important;
-  --background: var(--item-background-color) !important;
-  background-color: var(--item-background-color) !important;
-  z-index: 99999999 !important;
-  /* --height: 55px; */
   border-radius: 15px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-  margin: auto;
 `;
 
 const StaticCard = styled(IonItemSliding)`
-  /* width: 92%; */
-  /* border-radius: 15px; */
-  width: 100%;
   height: 55px;
-  /* background-color: red; */
-  /* margin: 0 auto; */
   margin-bottom: 14px;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-  /* box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); */
 `;
 
 const FloatingButton = styled.div`

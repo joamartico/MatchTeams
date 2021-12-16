@@ -89,7 +89,7 @@ export const Icon = styled(IonIcon)`
 export const Text = styled.p`
   display: block;
   /* margin: auto 0; */
-  color: ${({ color }) => color || 'var(--text-color)'} !important;
+  color: ${({ color }) => color && color} !important;
   font-size: ${({ size }) => size + 'px'};
   font-weight: ${({ weight }) => weight && weight};
   margin-left: ${({ ml }) => ml && ml};
