@@ -12,8 +12,11 @@ ion-spinner {
 
 html,
 body,
-#__next {
-  background: var(--background-color);
+#__next,
+ion-page,
+ion-content {
+  background: var(--background-color) !important;
+  --background: var(--background-color) !important;
 }
 
 html {
