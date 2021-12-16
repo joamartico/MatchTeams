@@ -83,13 +83,13 @@ export const Icon = styled(IonIcon)`
   margin-right: ${({ marginRight }) => marginRight + 'px' || '5px'};
   margin-left: ${({ marginLeft }) => marginLeft + 'px' || '5px'};
   align-self: center;
-  --ionicon-stroke-width: ${({ weight }) => weight ? weight + 'px' : "30px"} !important;
+  --ionicon-stroke-width: ${({ weight }) => (weight ? weight + 'px' : '30px')} !important;
 `;
 
 export const Text = styled.p`
   display: block;
   /* margin: auto 0; */
-  color: ${({ color }) => color || '#000'} !important;
+  color: ${({ color }) => color || 'var(--text-color)'} !important;
   font-size: ${({ size }) => size + 'px'};
   font-weight: ${({ weight }) => weight && weight};
   margin-left: ${({ ml }) => ml && ml};
