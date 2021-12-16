@@ -51,8 +51,8 @@ const Main = () => {
     if (router.routeInfo.pathname === '/') {
       document
         .querySelector('meta[name="theme-color"]')
-        .setAttribute('content', isDarkMode ? '#000' : '#ceebeb');
-        // .setAttribute('content', isDarkMode ? '#1e1e1e' : '#ceebeb');
+        // .setAttribute('content', isDarkMode ? '#000' : '#ceebeb');
+        .setAttribute('content', isDarkMode ? '#1e1e1e' : '#ceebeb');
     } else {
       document
         .querySelector('meta[name="theme-color"]')
@@ -111,21 +111,23 @@ const DeleteOption = styled(IonItemOption)`
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 55px;
   width: 55px;
   margin-right: 4.1%;
   margin-left: 8px;
   z-index: 99999999 !important;
+
 `;
 
 const SlidingCard = styled(IonItem)`
   width: 92%;
   border-radius: 15px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  height: 55px;
 `;
 
 const StaticCard = styled(IonItemSliding)`
-  height: 55px;
-  margin-bottom: 14px;
+  height: 70px;
 `;
 
 const FloatingButton = styled.div`
