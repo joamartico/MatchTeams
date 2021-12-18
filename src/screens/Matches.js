@@ -2,7 +2,7 @@ import { IonContent, IonGrid, IonRow } from '@ionic/react';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { db } from '../../firebase';
-import { Scroll } from '../components/StyledComponents';
+import { Button, Scroll } from '../components/StyledComponents';
 import Team from '../components/Team';
 import { useGlobalState } from '../Context';
 
@@ -17,6 +17,7 @@ const Matches = ({ tournamentId }) => {
     tournamentRef.update({
       shuffledPlayers: [...tournament.shuffledPlayers, ...tournament.firstFecha],
     });
+
   };
 
   return (
@@ -51,6 +52,13 @@ const Matches = ({ tournamentId }) => {
                 )
             )}
           </IonGrid>
+          <Button
+              color="black"
+              onClick={() => handleMasFechas()}
+              background="linear-gradient(192deg, rgba(252,209,10,1) 0%, rgba(255,232,34,1) 41%, rgba(235,202,0,1) 100%)"
+            >
+              Más Fechas
+            </Button>
         </Scroll>
       </IonContent>
     </>
