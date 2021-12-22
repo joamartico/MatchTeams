@@ -156,14 +156,19 @@ const Col = styled(IonCol)`
   align-items: center;
   padding: 0;
   width: fit-content;
+  text-align: ${({ local }) => (local ? 'right' : 'left')};
+  /* text-align: center; */
+
+
 `;
 
 const GoalsSelector = styled(IonSelect)`
   background: #fff;
   width: 22px !important;
   height: 32px !important;
-  margin: 0 8px;
+  margin: 0 14px;
   border-radius: 5px;
   border: 1px solid #000;
   padding: 0 12px;
+  color: #000;
 `;

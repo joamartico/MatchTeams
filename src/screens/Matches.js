@@ -17,6 +17,11 @@ const Matches = ({ tournamentId }) => {
     tournamentRef.update({
       shuffledPlayers: [...tournament.shuffledPlayers, ...tournament.firstFecha],
     });
+    setTournament({
+      ...tournament,
+      shuffledPlayers: newFechasTotales,
+    });
+
 
   };
 
@@ -69,7 +74,8 @@ const Matches = ({ tournamentId }) => {
 export default Matches;
 
 const Match = styled(IonRow)`
-  max-width: 400px;
+  /* max-width: 400px; 
+  /* max-width: 80vw; */
   margin: 50px auto;
   align-items: center;
   display: flex;

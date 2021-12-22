@@ -200,6 +200,7 @@ const PlayerInput = styled(IonInput)`
   font-weight: bold;
   font-size: 32px;
   margin-bottom: 25px;
+  --padding-start: 0;
 `;
 
 export default NewTournament;
